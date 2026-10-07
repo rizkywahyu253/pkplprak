@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CultureSquared | Official Store</title>
+    <meta name="description" content="Premium streetwear shorts by CultureSquared. Order now via WhatsApp.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-bar">
+        <p>Free Delivery on all orders over IDR 500.000. <a href="#">Details</a></p>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar">
+        <div class="logo">Culture²</div>
+        <div class="nav-links">
+            <a href="#shop">New Releases</a>
+            <a href="#shop">Men</a>
+            <a href="#shop">Women</a>
+            <a href="#about">About</a>
+        </div>
+        <div class="nav-actions">
+            <!-- Search / Wishlist / Cart Navigation -->
+            <a href="#" class="search-icon">Search</a>
+            <a href="#" id="openWishlistBtn" class="nav-icon-link" title="Wishlist">
+                <span>Wishlist</span>
+                <span id="wishlistCountBadge" class="nav-badge" style="display: none;">0</span>
+            </a>
+            <a href="#" id="openCartBtn" class="nav-icon-link" title="Shopping Cart">
+                <span>Cart</span>
+                <span id="cartCountBadge" class="nav-badge" style="display: none;">0</span>
+            </a>
+            <div id="authNavContainer" class="auth-nav-container">
+                <a href="#" id="openLoginBtn" class="nav-auth-link">Log In</a>
+                <span class="nav-auth-divider">/</span>
+                <a href="#" id="openRegisterBtn" class="nav-auth-link">Register</a>
+            </div>
+            <div id="userNavContainer" class="user-nav-container" style="display: none;">
+                <a href="#" id="openProfileBtn" class="nav-auth-link"><span id="navUserName" class="nav-user-greeting">Hi, User</span></a>
+                <span class="nav-auth-divider">/</span>
+                <a href="#" id="logoutBtn" class="nav-auth-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="hero">
+        <!-- Default decorative layers (dark mode) -->
+        <div class="hero-glow"></div>
+        <div class="hero-particles">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <!-- Untuk mengganti gambar background Hero, ubah URL di bawah ini -->
+        <div class="hero-image" id="heroBg" style="background-image: url('assets/IMG_0159.JPG.jpeg');"></div>
+        <!-- Gradient overlay always on top of image -->
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>SUMMER ESSENTIALS</h1>
+            <p>Elevate your everyday with our latest lightweight shorts.</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn btn-dark">Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trending / Products Section -->
+    <section id="shop" class="products-section">
+        <div class="section-header">
+            <h2>Trending Now</h2>
+            <div class="search-filter-container">
+                <input type="text" id="productSearchInput" class="product-search-input" placeholder="Search by name or category...">
+            </div>
+        </div>
+
+        <div class="category-filter-pills" id="categoryPills">
+            <button type="button" class="filter-pill active" data-category="all">All</button>
+            <button type="button" class="filter-pill" data-category="Men's BoardShorts">BoardShorts</button>
+            <button type="button" class="filter-pill" data-category="Men's Streetwear Shorts">Streetwear Shorts</button>
+        </div>
+
+        <div class="product-carousel" id="productGrid">
+            <!-- Product 1 -->
+            <div class="product-card" data-id="prod-1" data-name="CultureSquared Basic Black" data-category="Men's BoardShorts" data-price="85000">
+                <div class="product-image btn-view-trigger" data-id="prod-1">
+                    <img src="assets/shorts_1.png" alt="CultureSquared Basic Black">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="btn-view-trigger" data-id="prod-1" style="cursor: pointer;">CultureSquared Basic Black</h3>
+                        <p class="category">Men's BoardShorts</p>
+                        <p class="color-count">1 Color</p>
+                        <p class="price">Rp. 85.000</p>
+                    </div>
+                    <div class="product-card-actions">
+                        <button type="button" class="btn-view-detail btn-view-trigger" data-id="prod-1">View Details</button>
+                        <button type="button" class="btn-shop btn-order" data-product="CultureSquared Basic Black" data-price="85.000" style="padding: 12px 18px; font-size: 0.9rem;">WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-id="prod-2" data-name="CultureSquared Fatigue Short Black" data-category="Men's Streetwear Shorts" data-price="85000">
+                <div class="product-image btn-view-trigger" data-id="prod-2">
+                    <img src="assets/shorts_2.png" alt="CultureSquared Fatigue Short Black">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="btn-view-trigger" data-id="prod-2" style="cursor: pointer;">CultureSquared Fatigue Short Black</h3>
+                        <p class="category">Men's Streetwear Shorts</p>
+                        <p class="color-count">1 Color</p>
+                        <p class="price">Rp. 85.000</p>
+                    </div>
+                    <div class="product-card-actions">
+                        <button type="button" class="btn-view-detail btn-view-trigger" data-id="prod-2">View Details</button>
+                        <button type="button" class="btn-shop btn-order" data-product="CultureSquared Fatigue Short Black" data-price="85.000" style="padding: 12px 18px; font-size: 0.9rem;">WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="noProductsFound" class="empty-products-state" style="display: none;">
+            <p>No products found matching your search. Try a different search term or category.</p>
+        </div>
+    </section>
+
+    <!-- Featured Campaign -->
+    <section class="campaign-section">
+        <div class="campaign-grid">
+            <div class="campaign-text">
+                <h2>CULTURESQUARED STUDIO</h2>
+                <p>Designed for comfort. Built for the streets. Our materials are carefully sourced to ensure maximum
+                    durability without compromising on the fit.</p>
+                <a href="#about" class="btn btn-dark">Explore the Brand</a>
+            </div>
+            <div class="campaign-image" style="background-color: #f5f5f5;">
+                <img src="assets/IMG_0159.JPG.jpeg" alt="Campaign"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>FIND A STORE</h4>
+                <h4>BECOME A MEMBER</h4>
+                <h4>SIGN UP FOR EMAIL</h4>
+                <h4>STUDENT DISCOUNTS</h4>
+            </div>
+            <div class="footer-column">
+                <h4>GET HELP</h4>
+                <a href="#">Order Status</a>
+                <a href="#">Delivery</a>
+                <a href="#">Returns</a>
+                <a href="#">Payment Options</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h4>ABOUT CULTURESQUARED</h4>
+                <a href="#">News</a>
+                <a href="#">Careers</a>
+                <a href="#">Investors</a>
+                <a href="#">Sustainability</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">Culture²</div>
+            <p>&copy; 2026 CultureSquared, Inc. All Rights Reserved</p>
+            <div class="footer-legal">
+                <a href="#">Terms of Sale</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Order Modal -->
+    <div id="waModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Complete Your Order</h2>
+            <p class="modal-subtitle">We will prepare your WhatsApp message.</p>
+
+            <form id="orderForm">
+                <div class="order-summary">
+                    <p><strong>Product:</strong> <span id="modalProductName">...</span></p>
+                    <p><strong>Price:</strong> IDR <span id="modalProductPrice">...</span></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="size">Select Size</label>
+                    <select id="size" required>
+                        <option value="" disabled selected>Choose your size</option>
+                        <option value="S">Small (S)</option>
+                        <option value="M">Medium (M)</option>
+                        <option value="L">Large (L)</option>
+                        <option value="XL">Extra Large (XL)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" placeholder="e.g. John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Full Delivery Address</label>
+                    <textarea id="address" rows="3" placeholder="Include street, building, city, and zip code"
+                        required></textarea>
+                </div>
+
+                <!-- Replace the phone number in script.js, not here -->
+                <button type="submit" class="btn-submit-wa">Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <button class="close-modal" id="closeRegisterModal">&times;</button>
+            <h2>Create Account</h2>
+            <p class="modal-subtitle">Join CultureSquared for a seamless streetwear shopping experience.</p>
+
+            <div id="registerAlert" class="auth-alert" style="display: none;"></div>
+
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" placeholder="e.g. John Doe" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" placeholder="e.g. name@example.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="regPhone">Phone Number</label>
+                    <input type="tel" id="regPhone" placeholder="e.g. 081234567890" required autocomplete="tel">
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="Minimum 8 characters" required minlength="8" autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Repeat your password" required minlength="8" autocomplete="new-password">
+                </div>
+
+                <button type="submit" id="regSubmitBtn" class="btn-shop auth-submit-btn">Register</button>
+            </form>
+
+            <div class="auth-modal-footer">
+                <p>Already have an account? <a href="#" id="switchToLoginLink">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <button class="close-modal" id="closeLoginModal">&times;</button>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Log in to your CultureSquared account.</p>
+
+            <div id="loginAlert" class="auth-alert" style="display: none;"></div>
+
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="e.g. name@example.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="loginPassword">Password</label>
+                        <a href="#" id="forgotPasswordLink" class="auth-helper-link">Forgot Password?</a>
+                    </div>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" id="loginSubmitBtn" class="btn-shop auth-submit-btn">Log In</button>
+            </form>
+
+            <div class="auth-modal-footer">
+                <p>Don't have an account? <a href="#" id="switchToRegisterLink">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <button class="close-modal" id="closeForgotModal">&times;</button>
+            <h2>Forgot Password</h2>
+            <p class="modal-subtitle">Enter your email and we'll send you a link to reset your password.</p>
+
+            <div id="forgotAlert" class="auth-alert" style="display: none;"></div>
+
+            <form id="forgotPasswordForm" novalidate>
+                <div class="form-group">
+                    <label for="forgotEmail">Email Address</label>
+                    <input type="email" id="forgotEmail" placeholder="e.g. name@example.com" required autocomplete="email">
+                </div>
+
+                <button type="submit" id="forgotSubmitBtn" class="btn-shop auth-submit-btn">Send Reset Link</button>
+            </form>
+
+            <div class="auth-modal-footer">
+                <p>Remember your password? <a href="#" id="backToLoginFromForgot">Back to Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div id="resetPasswordModal" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <button class="close-modal" id="closeResetModal">&times;</button>
+            <h2>Set New Password</h2>
+            <p class="modal-subtitle">Please enter your new password below.</p>
+
+            <div id="resetAlert" class="auth-alert" style="display: none;"></div>
+
+            <form id="resetPasswordForm" novalidate>
+                <div class="form-group">
+                    <label for="resetNewPassword">New Password</label>
+                    <input type="password" id="resetNewPassword" placeholder="Minimum 8 characters" required minlength="8" autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="resetConfirmPassword">Confirm New Password</label>
+                    <input type="password" id="resetConfirmPassword" placeholder="Confirm your new password" required minlength="8" autocomplete="new-password">
+                </div>
+
+                <button type="submit" id="resetSubmitBtn" class="btn-shop auth-submit-btn">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div id="profileModal" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <button class="close-modal" id="closeProfileModal">&times;</button>
+            <h2>My Profile</h2>
+            <p class="modal-subtitle">Manage your account information and preferences.</p>
+
+            <div id="profileAlert" class="auth-alert" style="display: none;"></div>
+
+            <!-- Profile Info Form -->
+            <form id="profileForm" novalidate>
+                <div class="form-group">
+                    <label for="profileEmail">Email Address</label>
+                    <input type="email" id="profileEmail" disabled style="background-color: var(--light-gray); cursor: not-allowed;">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileName">Full Name</label>
+                    <input type="text" id="profileName" placeholder="Your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="profilePhone">Phone Number</label>
+                    <input type="tel" id="profilePhone" placeholder="Your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="profileAddress">Delivery Address</label>
+                    <textarea id="profileAddress" rows="3" placeholder="Default delivery address for orders"></textarea>
+                </div>
+
+                <button type="submit" id="saveProfileBtn" class="btn-shop auth-submit-btn">Save Profile Changes</button>
+            </form>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
+
+            <!-- Change Password Form -->
+            <form id="changePasswordForm" novalidate>
+                <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">Change Password</h3>
+                <div class="form-group">
+                    <label for="profileNewPassword">New Password</label>
+                    <input type="password" id="profileNewPassword" placeholder="Minimum 8 characters" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="profileConfirmPassword">Confirm New Password</label>
+                    <input type="password" id="profileConfirmPassword" placeholder="Repeat new password" minlength="8" required>
+                </div>
+                <button type="submit" id="changePasswordBtn" class="btn-shop auth-submit-btn" style="background-color: #333333;">Update Password</button>
+            </form>
+
+            <div class="auth-modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <button type="button" id="profileLogoutBtn" style="background: none; border: none; color: #b91c1c; font-weight: 700; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 0.9rem;">Logout</button>
+                <a href="#orders" id="profileOrdersLink" style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Order History &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productDetailModal" class="modal-overlay">
+        <div class="modal-content product-detail-modal-content">
+            <button class="close-modal" id="closeProductDetailModal">&times;</button>
+            <div class="product-detail-layout">
+                <div class="product-detail-media">
+                    <img id="detailProductImage" src="assets/shorts_1.png" alt="Product Detail">
+                </div>
+                <div class="product-detail-info">
+                    <span id="detailProductCategory" class="detail-category">Men's BoardShorts</span>
+                    <h2 id="detailProductName" class="detail-title">CultureSquared Basic Black</h2>
+                    <p id="detailProductPrice" class="detail-price">Rp. 85.000</p>
+                    <p id="detailProductDesc" class="detail-description">Lightweight everyday streetwear boardshorts engineered for maximum comfort and durability.</p>
+
+                    <div class="detail-form-group" style="margin-bottom: 1.25rem;">
+                        <label class="detail-label">Select Size:</label>
+                        <div class="size-options-grid" id="detailSizeOptions">
+                            <button type="button" class="size-pill" data-size="S">S</button>
+                            <button type="button" class="size-pill" data-size="M">M</button>
+                            <button type="button" class="size-pill" data-size="L">L</button>
+                            <button type="button" class="size-pill" data-size="XL">XL</button>
+                        </div>
+                        <span id="sizeErrorMsg" class="form-error-inline" style="display: none;">Please select a size before adding to cart.</span>
+                    </div>
+
+                    <div class="detail-form-group">
+                        <label class="detail-label">Quantity:</label>
+                        <div class="quantity-control">
+                            <button type="button" id="qtyMinusBtn" class="qty-btn">-</button>
+                            <input type="number" id="detailQuantity" value="1" min="1" max="50" readonly>
+                            <button type="button" id="qtyPlusBtn" class="qty-btn">+</button>
+                        </div>
+                    </div>
+
+                    <div id="detailAlert" class="auth-alert" style="display: none;"></div>
+
+                    <div class="detail-actions">
+                        <button type="button" id="addToCartBtn" class="btn-shop detail-add-cart">Add to Cart</button>
+                        <button type="button" id="addToWishlistBtn" class="btn-wishlist-toggle" title="Add to Wishlist">
+                            <span id="wishlistIcon">♡</span>
+                        </button>
+                    </div>
+
+                    <div class="detail-wa-action" style="margin-top: 1rem;">
+                        <button type="button" id="detailBuyWaBtn" class="btn-shop" style="background-color: #25D366; width: 100%;">Order via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div id="wishlistModal" class="modal-overlay">
+        <div class="modal-content cart-wishlist-modal-content">
+            <button class="close-modal" id="closeWishlistModal">&times;</button>
+            <h2>My Wishlist</h2>
+            <p class="modal-subtitle">Your curated selection of favorite streetwear pieces.</p>
+
+            <div id="wishlistAlert" class="auth-alert" style="display: none;"></div>
+
+            <div id="wishlistItemsList" class="items-list-container">
+                <!-- Dynamically populated -->
+            </div>
+
+            <div id="emptyWishlistState" class="empty-state-card" style="display: none;">
+                <p>Your wishlist is currently empty.</p>
+                <a href="#shop" class="btn btn-dark" id="wishlistExploreBtn" style="margin-top: 1rem; display: inline-block;">Explore Collection</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="modal-overlay">
+        <div class="modal-content cart-wishlist-modal-content">
+            <button class="close-modal" id="closeCartModal">&times;</button>
+            <h2>Shopping Bag</h2>
+            <p class="modal-subtitle">Review your selected streetwear pieces.</p>
+
+            <div id="cartAlert" class="auth-alert" style="display: none;"></div>
+
+            <div id="cartItemsList" class="items-list-container">
+                <!-- Dynamically populated cart items -->
+            </div>
+
+            <div id="emptyCartState" class="empty-state-card" style="display: none;">
+                <p>Your shopping bag is empty.</p>
+                <a href="#shop" class="btn btn-dark" id="cartExploreBtn" style="margin-top: 1rem; display: inline-block;">Shop New Releases</a>
+            </div>
+
+            <!-- Cart Summary & Checkout Trigger -->
+            <div id="cartSummarySection" class="cart-summary-box" style="display: none;">
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">IDR 0</span>
+                </div>
+                <div class="summary-line">
+                    <span>Delivery Fee</span>
+                    <span id="cartShipping">IDR 0</span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <span id="cartTotal">IDR 0</span>
+                </div>
+
+                <button type="button" id="proceedCheckoutBtn" class="btn-shop" style="width: 100%; margin-top: 1.5rem; cursor: pointer;">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal-overlay">
+        <div class="modal-content product-detail-modal-content">
+            <button class="close-modal" id="closeCheckoutModal">&times;</button>
+            <h2>Checkout</h2>
+            <p class="modal-subtitle">Complete your delivery address and confirm your order.</p>
+
+            <div id="checkoutAlert" class="auth-alert" style="display: none;"></div>
+
+            <div class="product-detail-layout" style="align-items: start;">
+                <!-- Left: Delivery Information -->
+                <form id="checkoutForm" novalidate>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">Delivery Information</h3>
+
+                    <div class="form-group">
+                        <label for="checkoutRecipientName">Recipient Name</label>
+                        <input type="text" id="checkoutRecipientName" placeholder="Full name of receiver" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkoutPhone">Phone Number</label>
+                        <input type="tel" id="checkoutPhone" placeholder="Mobile phone for courier contact" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkoutAddress">Street Address</label>
+                        <textarea id="checkoutAddress" rows="2" placeholder="Street name, building, unit number" required></textarea>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="checkoutCity">City</label>
+                            <input type="text" id="checkoutCity" placeholder="City / Regency" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkoutPostalCode">Postal Code</label>
+                            <input type="text" id="checkoutPostalCode" placeholder="Postal Code" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="placeOrderBtn" class="btn-shop" style="width: 100%; margin-top: 1rem; cursor: pointer;">Place Order Now</button>
+                </form>
+
+                <!-- Right: Order Review -->
+                <div class="checkout-review-panel">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">Order Summary</h3>
+                    <div id="checkoutItemsList" class="items-list-container" style="max-height: 250px; overflow-y: auto; margin-top: 0; margin-bottom: 1.5rem;">
+                        <!-- Dynamically filled with cart items -->
+                    </div>
+
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span id="checkoutSubtotal">IDR 0</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Delivery Fee</span>
+                        <span id="checkoutShipping">IDR 0</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total Amount</span>
+                        <span id="checkoutTotal">IDR 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="orderConfirmationModal" class="modal-overlay">
+        <div class="modal-content auth-modal-content" style="text-align: center;">
+            <button class="close-modal" id="closeConfirmationModal">&times;</button>
+            <div style="font-size: 3rem; margin-bottom: 1rem; color: #166534;">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p class="modal-subtitle">Thank you for ordering with CultureSquared.</p>
+
+            <div class="order-summary" style="text-align: left; margin: 1.5rem 0;">
+                <p><strong>Order ID:</strong> <span id="confirmedOrderId">#CS-0000</span></p>
+                <p><strong>Status:</strong> <span class="order-status-badge pending" id="confirmedOrderStatus">Pending</span></p>
+                <p><strong>Total Amount:</strong> <span id="confirmedOrderTotal">IDR 0</span></p>
+                <p><strong>Delivery To:</strong> <span id="confirmedOrderAddress">...</span></p>
+            </div>
+
+            <button type="button" id="confirmationOrdersBtn" class="btn-shop" style="width: 100%; margin-bottom: 0.5rem; cursor: pointer;">View in Order History</button>
+            <button type="button" id="confirmationContinueBtn" class="btn-view-detail" style="width: 100%; cursor: pointer;">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Supabase SDK & Client Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabaseClient.js"></script>
+    <script src="auth.js"></script>
+    <script src="products.js"></script>
+    <script src="wishlist.js"></script>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
