@@ -173,6 +173,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // EP/BVA Business Rule Validation: Phone Number (10 - 13 digits, only numbers)
+            const phoneRegex = /^[0-9]+$/;
+            if (!phoneRegex.test(phone)) {
+                showAlert(checkoutAlert, 'Phone number must contain only numbers (0-9).', 'error');
+                return;
+            }
+            if (phone.length < 10 || phone.length > 13) {
+                showAlert(checkoutAlert, 'Phone number must be between 10 and 13 digits.', 'error');
+                return;
+            }
+
             if (!window.userCart || window.userCart.length === 0) {
                 showAlert(checkoutAlert, 'Your cart is empty. Please add items to order.', 'error');
                 return;

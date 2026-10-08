@@ -75,7 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     .eq('user_id', window.currentUser.id);
 
                 if (!error && data) {
-                    window.userCart = data;
+                    if (data.length === 0) {
+                        // Fallback to local storage if DB is empty (handles insert failures)
+                        loadLocalCart();
+                    } else {
+                        window.userCart = data;
+                        saveLocalCart();
+                    }
                 } else {
                     loadLocalCart();
                 }
@@ -235,13 +241,26 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const qty = Number(quantity) || 1;
+        let qty = Number(quantity) || 1;
+        // EP/BVA Validasi Batas Bawah dan Input Non-Numeric
+        if (qty < 1) qty = 1;
+
         const existingIndex = window.userCart.findIndex(
             item => item.product_id === productId && item.size === size
         );
 
         if (existingIndex > -1) {
-            window.userCart[existingIndex].quantity += qty;
+            let newQty = window.userCart[existingIndex].quantity + qty;
+            
+            // EP/BVA Validasi Batas Atas: Max 5
+            if (newQty > 5) {
+                newQty = 5;
+                showAlert(cartAlert, 'Maximum 5 items allowed per product for limited streetwear pieces.', 'error');
+            } else {
+                showAlert(cartAlert, 'Item added to your shopping bag!', 'success');
+            }
+
+            window.userCart[existingIndex].quantity = newQty;
             saveLocalCart();
             updateCartBadge();
 
@@ -253,6 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 } catch (e) {}
             }
         } else {
+            // EP/BVA Validasi Batas Atas untuk item baru
+            if (qty > 5) {
+                qty = 5;
+                showAlert(cartAlert, 'Maximum 5 items allowed per product for limited streetwear pieces.', 'error');
+            } else {
+                showAlert(cartAlert, 'Item added to your shopping bag!', 'success');
+            }
+
             const newItem = {
                 id: 'cart-' + Date.now(),
                 user_id: window.currentUser.id,
@@ -280,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Open cart to show updated state
         openCart();
-        showAlert(cartAlert, 'Item added to your shopping bag!', 'success');
     }
 
     window.addToCart = addToCart;
@@ -290,10 +316,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = window.userCart.find(i => i.id === cartItemId);
         if (!item) return;
 
-        const newQty = item.quantity + delta;
+        let newQty = item.quantity + delta;
         if (newQty <= 0) {
             await removeFromCart(cartItemId);
             return;
+        }
+
+        // EP/BVA Business Rule Validation: Max 5 per item
+        if (newQty > 5) {
+            if (window.showAlert && cartAlert) {
+                window.showAlert(cartAlert, 'Maximum 5 items allowed per product for limited streetwear pieces.', 'error');
+            }
+            newQty = 5;
+        } else {
+            if (cartAlert) cartAlert.style.display = 'none'; // clear previous error
         }
 
         item.quantity = newQty;

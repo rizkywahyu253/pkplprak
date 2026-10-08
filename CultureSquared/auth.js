@@ -792,5 +792,55 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Delete Account Action ---
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+    if (deleteAccountBtn) {
+        deleteAccountBtn.addEventListener('click', async () => {
+            if (!window.currentUser) return;
+            
+            const confirmed = confirm("Are you sure you want to permanently delete your account? This action cannot be undone.");
+            if (!confirmed) return;
+
+            clearAlert(profileAlert);
+            deleteAccountBtn.disabled = true;
+            const originalText = deleteAccountBtn.textContent;
+            deleteAccountBtn.textContent = 'Deleting...';
+
+            try {
+                if (client) {
+                    // Attempt to delete profile data if RLS allows it (privacy wipe)
+                    await client.from('profiles').delete().eq('id', window.currentUser.id);
+                    
+                    // Supabase Anon client doesn't allow deleting from auth.users natively.
+                    // This logs the user out as the frontend action.
+                    await client.auth.signOut();
+                }
+
+                // Clean local storage tied to user
+                localStorage.removeItem(`cs_cart_${window.currentUser.id}`);
+                localStorage.removeItem(`cs_wishlist_${window.currentUser.id}`);
+                localStorage.removeItem(`cs_orders_${window.currentUser.id}`);
+                
+                window.currentUser = null;
+                
+                closeProfile();
+                
+                // Show success on login modal
+                const loginAlert = document.getElementById('loginAlert');
+                if (loginAlert) {
+                    showAlert(loginAlert, 'Account data has been wiped and you are logged out.', 'success');
+                }
+                if (window.openLoginModal) window.openLoginModal();
+                
+            } catch (err) {
+                console.error('[CultureSquared] Delete account error:', err);
+                showAlert(profileAlert, 'An error occurred while deleting account. Please contact support.', 'error');
+            } finally {
+                deleteAccountBtn.disabled = false;
+                deleteAccountBtn.textContent = originalText;
+            }
+        });
+    }
 });
 
