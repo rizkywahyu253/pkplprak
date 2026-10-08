@@ -81,7 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     .eq('user_id', window.currentUser.id);
 
                 if (!error && data) {
-                    window.userWishlist = data;
+                    if (data.length === 0) {
+                        // Fallback to local storage if DB is empty (handles insert failures)
+                        loadLocalWishlist();
+                    } else {
+                        window.userWishlist = data;
+                        saveLocalWishlist();
+                    }
                 } else {
                     // Fallback to local storage for persistence
                     loadLocalWishlist();

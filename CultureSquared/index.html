@@ -386,7 +386,6 @@
 
             <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
 
-            <!-- Change Password Form -->
             <form id="changePasswordForm" novalidate>
                 <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">Change Password</h3>
                 <div class="form-group">
@@ -400,8 +399,17 @@
                 <button type="submit" id="changePasswordBtn" class="btn-shop auth-submit-btn" style="background-color: #333333;">Update Password</button>
             </form>
 
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
+
+            <!-- Delete Account Section -->
+            <div id="deleteAccountSection" style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; color: #b91c1c;">Danger Zone</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Once you delete your account, there is no going back. Please be certain.</p>
+                <button type="button" id="deleteAccountBtn" class="btn-shop auth-submit-btn" style="background-color: transparent; border: 1px solid #b91c1c; color: #b91c1c; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#b91c1c'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#b91c1c';">Delete Account</button>
+            </div>
+
             <div class="auth-modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
-                <button type="button" id="profileLogoutBtn" style="background: none; border: none; color: #b91c1c; font-weight: 700; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 0.9rem;">Logout</button>
+                <button type="button" id="profileLogoutBtn" style="background: none; border: none; color: #333; font-weight: 700; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 0.9rem;">Logout</button>
                 <a href="#orders" id="profileOrdersLink" style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Order History &rarr;</a>
             </div>
         </div>
@@ -603,6 +611,26 @@
         </div>
     </div>
 
+    <!-- Orders Modal -->
+    <div id="ordersModal" class="modal-overlay">
+        <div class="modal-content cart-wishlist-modal-content">
+            <button class="close-modal" id="closeOrdersModal">&times;</button>
+            <h2>My Orders</h2>
+            <p class="modal-subtitle">Track and manage your order history.</p>
+
+            <div id="ordersAlert" class="auth-alert" style="display: none;"></div>
+
+            <div id="ordersItemsList" class="items-list-container">
+                <!-- Dynamically populated order items -->
+            </div>
+
+            <div id="emptyOrdersState" class="empty-state-card" style="display: none;">
+                <p>You haven't placed any orders yet.</p>
+                <a href="#shop" class="btn btn-dark" id="ordersExploreBtn" style="margin-top: 1rem; display: inline-block;">Start Shopping</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Supabase SDK & Client Initialization -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabaseClient.js"></script>
@@ -610,6 +638,8 @@
     <script src="products.js"></script>
     <script src="wishlist.js"></script>
     <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+    <script src="orders.js"></script>
     <script src="script.js"></script>
 </body>
 
